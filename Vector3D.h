@@ -1,3 +1,5 @@
+#include <iostream>
+
 class Vector3D
 {
 private:
@@ -18,12 +20,12 @@ public:
 	void setZ(double Z);
 
 	Vector3D operator* (double a);
-	Vector3D operator+ (Vector3D v2);
-	Vector3D operator- (Vector3D v2);
-	double operator* (Vector3D v2);
-}
+	Vector3D operator+ (Vector3D& v2);
+	Vector3D operator- (Vector3D& v2);
+	double operator* (Vector3D& v2);
+};
 
 Vector3D operator* (Vector3D& v, double a);
 
-ostream& operator<<(ostream& os, Vector3D& v);
-istream& operator>>(istream& is, Vector3D& v);
+std::ostream& operator<<(std::ostream& os, Vector3D& v);
+std::istream& operator>>(std::istream& is, Vector3D& v);

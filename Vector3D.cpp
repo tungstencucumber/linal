@@ -3,52 +3,45 @@
 
 using namespace std;
 
-class Vector3D
+
+Vector3D::Vector3D() {};
+Vector3D::Vector3D(double x, double y, double z): x(x), y(y), z(z) {};
+Vector3D::~Vector3D() {};
+
+
+double Vector3D::getX() { return x; }
+double Vector3D::getY() { return y; }
+double Vector3D::getZ() { return z; }
+
+
+void Vector3D::setX(double X) { x = X; }
+void Vector3D::setY(double Y) { y = Y; }
+void Vector3D::setZ(double Z) { z = Z; }
+
+
+Vector3D Vector3D::operator*(double a)
 {
-private:
-	double x;
-	double y;
-	double z;
-public:
-	Vector3D() {};
-	Vector3D(double x, double y, double z): x(x), y(y), z(z);
-	~Vector3D() {};
+	return Vector3D(x*a, y*a, z*a);
+}
 
+Vector3D Vector3D::operator+ (Vector3D& v2)
+{
+	return Vector3D(x + v2.x, y + v2.y, z + v2.z);
+}
 
-	double getX() { return x; }
-	double getY() { return y; }
-	double getZ() { return z; }
+Vector3D Vector3D::operator- (Vector3D& v2)
+{
+	return Vector3D(x - v2.x, y - v2.y, z - v2.z);
+}
 
-
-	void setX(double X) { x = X; }
-	void setY(double Y) { y = Y; }
-	void setZ(double Z) { z = Z; }
-
-
-	Vector3D operator* (double a)
-	{
-		return Vector3D(x*a, y*a, z*a);
-	}
-
-	Vector3D operator+ (Vector3D v2)
-	{
-		return Vector3D(x + v2.x, y + v2.y, z + v2.z);
-	}
-
-	Vector3D operator- (Vector3D v2)
-	{
-		return Vector3D(x - v2.x, y - v2.y, z - v2.z);
-	}
-
-	double operator* (Vector3D v2)
-	{
-		return x*v2.x + y*v2.y + z*v2.z;
-	}
+double Vector3D::operator* (Vector3D& v2)
+{
+	return x*v2.x + y*v2.y + z*v2.z;
 }
 
 Vector3D operator* (Vector3D& v, double a)
 {
-	return Vector3D(x*a, y*a, z*a);
+	return Vector3D(v.getX()*a, v.getY()*a, v.getZ()*a);
 }
 
 ostream& operator<<(ostream& os, Vector3D& v)
