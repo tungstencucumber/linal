@@ -46,7 +46,7 @@ Vector3D operator* (Vector3D& v, double a)
 
 ostream& operator<<(ostream& os, Vector3D& v)
 {
-	os << "(" << v.getX() << ", " << v.getY() << ", " << v.getZ() << ")";
+	os << "| " << v.getX() << " |\n| " << v.getY() << " |\n| " << v.getZ() << " |";
 	return os;
 }
 

@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Vector3D.h"
 
 class Matrix3D
 {
@@ -15,7 +16,7 @@ public:
 
 	void setAij(int i, int j, double a);
 
-	Matrix3D operator* (double a);
+	Matrix3D operator* (double l);
 	Matrix3D operator+ (Matrix3D& m2);
 	Matrix3D operator- (Matrix3D& m2);
 	Matrix3D operator* (Matrix3D& m2);
@@ -24,7 +25,7 @@ public:
 	double det();
 };
 
-Matrix3D operator* (Matrix3D& m, double a);
+Matrix3D operator* (Matrix3D& m, double l);
 
 std::ostream& operator<<(std::ostream& os, Matrix3D& v);
 std::istream& operator>>(std::istream& is, Matrix3D& v);
