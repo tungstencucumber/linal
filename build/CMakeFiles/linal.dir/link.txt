@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/linal.dir/Main.o CMakeFiles/linal.dir/Matrix3D.o CMakeFiles/linal.dir/Vector3D.o  -o linal 
