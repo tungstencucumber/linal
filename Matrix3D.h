@@ -12,7 +12,7 @@ public:
 			double a31, double a32, double a33);
 	~Matrix3D();
 
-	double getAij(int i, int j);
+	double getAij(int i, int j) const;
 
 	void setAij(int i, int j, double a);
 
@@ -25,7 +25,7 @@ public:
 	double det();
 };
 
-Matrix3D operator* (Matrix3D& m, double l);
+Matrix3D operator* (double l, Matrix3D& m);
 
-std::ostream& operator<<(std::ostream& os, Matrix3D& v);
+std::ostream& operator<<(std::ostream& os, const Matrix3D& v);
 std::istream& operator>>(std::istream& is, Matrix3D& v);

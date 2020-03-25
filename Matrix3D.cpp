@@ -20,15 +20,17 @@ Matrix3D::Matrix3D(double a11, double a12, double a13,
 }
 Matrix3D::~Matrix3D() {}
 
-double Matrix3D::getAij(int i, int j) { return a[i][j]; }
+double Matrix3D::getAij(int i, int j) const { return a[i][j]; }
 
 void Matrix3D::setAij(int i, int j, double x) { a[i][j] = x; }
 
 Matrix3D Matrix3D::operator* (double l)
 {
+	Matrix3D m(0,0,0,0,0,0,0,0,0);
 	for(int i = 0; i < 3; i++)
 		for(int j = 0; j < 3; j++)
-			a[i][j] *= l;
+			m.a[i][j] = a[i][j]*l;
+	return m;
 }
 
 Matrix3D Matrix3D::operator+ (Matrix3D& m2)
@@ -74,14 +76,16 @@ double Matrix3D::det()
 			+ a[0][2]*(a[1][0]*a[2][1] - a[1][1]*a[2][0]);
 }
 
-Matrix3D operator* (Matrix3D& m, double l)
+Matrix3D operator* (double l, Matrix3D& m2)
 {
+	Matrix3D m(0,0,0,0,0,0,0,0,0);
 	for(int i = 0; i < 3; i++)
 		for(int j = 0; j < 3; j++)
-			m.setAij(i, j, m.getAij(i,j)*l);
+			m.setAij(i, j, m2.getAij(i,j)*l);
+	return m;
 }
 
-std::ostream& operator<<(std::ostream& os, Matrix3D& v)
+std::ostream& operator<<(std::ostream& os, const Matrix3D& v)
 {
 	os << "| " << v.getAij(0, 0) << " " << v.getAij(0, 1) << " " << v.getAij(0, 2) << " |" << endl;
 	os << "| " << v.getAij(1, 0) << " " << v.getAij(1, 1) << " " << v.getAij(1, 2) << " |" << endl;
