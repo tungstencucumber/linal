@@ -1,3 +1,6 @@
+#ifndef VECTOR3D_H
+#define VECTOR3D_H
+
 #include <iostream>
 
 class Vector3D
@@ -30,3 +33,6 @@ Vector3D operator* (double a, Vector3D& v);
 
 std::ostream& operator<<(std::ostream& os, const Vector3D& v);
 std::istream& operator>>(std::istream& is, Vector3D& v);
+
+
+#endif

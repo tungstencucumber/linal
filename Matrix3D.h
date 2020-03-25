@@ -1,3 +1,6 @@
+#ifndef MATRIX3D_H
+#define MATRIX3D_H
+
 #include <iostream>
 #include "Vector3D.h"
 
@@ -29,3 +32,6 @@ Matrix3D operator* (double l, Matrix3D& m);
 
 std::ostream& operator<<(std::ostream& os, const Matrix3D& v);
 std::istream& operator>>(std::istream& is, Matrix3D& v);
+
+
+#endif
