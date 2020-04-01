@@ -1,3 +1,0 @@
-/home/node/workspace/linal/build/CMakeFiles/rebuild_cache.dir
-/home/node/workspace/linal/build/CMakeFiles/linal.dir
-/home/node/workspace/linal/build/CMakeFiles/edit_cache.dir
